@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection.Exceptions;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

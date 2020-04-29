@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection.Exceptions;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -20,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 }
             }
 
-            return serviceProvider.GetService<TService>();
+            throw new NotExistingNamedServiceException(typeof(TService).FullName, name);
         }
     }
 }

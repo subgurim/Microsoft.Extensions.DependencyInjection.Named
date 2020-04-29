@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection.Exceptions
 {
     public class AlreadyRegisteredNameForServiceTypeException : Exception
     {
