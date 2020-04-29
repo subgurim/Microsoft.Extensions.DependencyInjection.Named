@@ -1,15 +1,12 @@
 using Microsoft.Extensions.DependencyInjection.Exceptions;
+using Microsoft.Extensions.DependencyInjection.Named.Tests.Objects;
 using NUnit.Framework;
 
 namespace Microsoft.Extensions.DependencyInjection.Named.Tests
 {
+    [TestFixture]
     public class ServiceCollectionNamedTests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
         public void NamedServicesTests()
         {
@@ -27,7 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection.Named.Tests
             Assert.NotNull(myServiceB);
             Assert.IsInstanceOf<MyServiceB>(myServiceB);
         }
-        
+
         [Test]
         public void SameNamedServiceThrowsException()
         {
@@ -35,7 +32,7 @@ namespace Microsoft.Extensions.DependencyInjection.Named.Tests
             serviceCollection.Add(typeof(IMyService), typeof(MyServiceA), "A", ServiceLifetime.Transient);
             Assert.Throws<AlreadyRegisteredNameForServiceTypeException>(() => serviceCollection.Add(typeof(IMyService), typeof(MyServiceB), "A", ServiceLifetime.Transient));
         }
-        
+
         [Test]
         public void NotExistingNamedServiceThrowsException()
         {
