@@ -25,3 +25,5 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
     - name: Create the package
       run: dotnet pack --configuration Release Microsoft.Extensions.DependencyInjection.Named/Microsoft.Extensions.DependencyInjection.Named.csproj
+    - name: Publish the package
+      run: dotnet nuget push Microsoft.Extensions.DependencyInjection.Named/bin/Release/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
