@@ -23,3 +23,5 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Create the package
+      run: dotnet pack --configuration Release Microsoft.Extensions.DependencyInjection.Named/Microsoft.Extensions.DependencyInjection.Named.csproj
