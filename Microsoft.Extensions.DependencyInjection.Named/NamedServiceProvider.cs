@@ -16,7 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 {
                     if (item.TryGetValue(name, out var implementationType))
                     {
-                        return serviceProvider.GetServices<TService>().FirstOrDefault(t => t.GetType() == implementationType);
+                        return (TService)serviceProvider.GetService(implementationType);
                     }
                 }
             }

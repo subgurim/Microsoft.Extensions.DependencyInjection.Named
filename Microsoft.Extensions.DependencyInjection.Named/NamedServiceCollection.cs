@@ -38,6 +38,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }
 
             collection.Add(new ServiceDescriptor(serviceType, implementationType, lifetime));
+            collection.Add(new ServiceDescriptor(implementationType, implementationType, lifetime));
 
             return collection;
         }
